@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+
+
+actor Usuari as usuari
+actor UsuariNoRegistrat as usuarinotregistrat
+
+
+rectangle UCPIS{
+
+usecase (UC1. Sign UP)  as UC1 #aliceblue;line:blue;line.bold;text:blue
+usecase (UC2. Sign IN)  as UC2 #aliceblue;line:blue;line.bold;text:blue
+usecase (UC3. Crear cançons) as UC3
+usecase (UC3.1 Afegir samples) as UC31
+usecase (UC3.2 Escriure la lletra) as UC32
+usecase (UC3.3 Gravar) as UC33
+usecase (UC5. Assignar com a to de trucada) as UC5
+usecase (UC4. Reproduir cançons creades) as UC4
+
+
+
+
+
+
+usuarinotregistrat -- UC1
+usuari -- UC2
+usuari - UC3
+usuarinotregistrat - UC3
+UC3 <|--- UC31
+UC3 <|--- UC32
+UC3 <|--- UC33
+
+
+usuari -- UC4
+UC5 <.-- UC4 : <<extends>>
+
+
+
+
+}
+@enduml
