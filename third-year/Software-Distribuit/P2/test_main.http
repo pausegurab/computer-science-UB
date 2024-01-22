@@ -1,0 +1,249 @@
+# Test your FastAPI endpoints
+
+GET http://127.0.0.1:8000/
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/hello/User
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/python
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/teams/
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/teams/Barça
+Accept: application/json
+
+###
+
+POST http://127.0.0.1:8000/teams/
+Content-Type: application/json
+
+{   "name": "Barça",
+    "country": "Spain",
+    "description": "Futbol Sala Team"}
+
+###
+
+POST http://127.0.0.1:8000/teams/
+Content-Type: application/json
+
+{   "name": "Madrid",
+    "country": "Spain",
+    "description": "Futbol Sala Team"}
+
+###
+
+
+POST http://127.0.0.1:8000/teams/
+Content-Type: application/json
+
+{   "name": "Alcafrán FC",
+    "country": "Spain",
+    "description": "Futbol Sala Team"}
+
+###
+
+POST http://127.0.0.1:8000/teams/
+Content-Type: application/json
+
+{   "name": "Holstein Kiel",
+    "country": "Germany",
+    "description": "Kiel Warriors"}
+
+###
+
+POST http://127.0.0.1:8000/teams/
+Content-Type: application/json
+
+{   "name": "Desarrapados VC",
+    "country": "Alcafrán",
+    "description": "Jose Mota Fan Club"}
+
+###
+
+DELETE http://127.0.0.1:8000/teams/RCDE
+
+###
+
+PUT http://127.0.0.1:8000/teams/1
+Content-Type: application/json
+
+{   "name": "Barça",
+    "country": "Spain",
+    "description": "Ser del barça és el millor que hi ha",
+    "id": 1}
+
+###
+
+GET http://127.0.0.1:8000/competitions/
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/competitions/LaLiga
+Accept: application/json
+
+###
+
+POST http://127.0.0.1:8000/competitions/
+Content-Type: application/json
+
+{  "name": "LaLiga",
+    "category": "Senior",
+    "sport":  "Football"
+                          }
+
+###
+
+DELETE http://127.0.0.1:8000/competitions/LaLiga
+
+###
+
+PUT http://127.0.0.1:8000/competitions/1
+Content-Type: application/json
+
+{   "name": "LaLiga",
+    "category": "Senior",
+    "sport":  "Football",
+    "teams": [{"name":"Barça","country":"Spain","description":"Futbol Sala Team","id":1},{"name":"Madrid","country":"Spain","description":"Futbol Sala Team","id":2}],
+    "id": 1
+}
+
+###
+
+
+POST http://127.0.0.1:8000/competitions/
+Content-Type: application/json
+
+{  "name": "Champions League",
+    "category": "Senior",
+    "sport":  "Volleyball"
+                          }
+
+###
+
+PUT http://127.0.0.1:8000/competitions/2
+Content-Type: application/json
+
+{   "name": "Champions League",
+    "category": "Senior",
+    "sport":  "Volleyball",
+    "teams": [{"name":"Holstein Kiel","country":"Germany","description":"Kiel Warriors","id":4},{"name":"Desarrapados VC","country":"Alcafrán","description":"Jose Mota Fan Club","id":5}],
+    "id": 2
+}
+
+###
+
+GET http://127.0.0.1:8000/matches/
+Accept: application/json
+
+###
+
+POST http://127.0.0.1:8000/matches/
+Content-Type: application/json
+
+{
+    "date": "2023-06-08T17:31:00.000Z",
+    "price": 10,
+    "local": {
+      "id": 5,
+      "name": "Desarrapados VC",
+      "country": "Alcafrán"
+    },
+    "visitor": {
+      "id": 4,
+      "name": "Holstein Kiel",
+      "country": "Germany"
+    },
+    "competition": {
+      "id": 2,
+      "name": "Champions League",
+      "category": "Senior",
+      "sport":  "Volleyball"
+    },
+    "total_available_tickets": 301
+}
+
+###
+
+DELETE http://127.0.0.1:8000/matches/1
+
+###
+
+PUT http://127.0.0.1:8000/matches/1
+Content-Type: application/json
+
+{
+    "date": "2023-06-14T15:31:00.000Z",
+    "price": 35.5,
+    "local": {
+      "id": 7,
+      "name": "FC Condumio",
+      "country": "Spain"
+    },
+    "visitor": {
+      "id": 8,
+      "name": "Alcafrán",
+      "country": "Spain"
+    },
+    "competition": {
+      "id": 1,
+      "name": "LaLiga",
+      "category": "Senior",
+      "sport":  "Football"
+    },
+    "id": 1
+}
+
+###
+
+POST http://127.0.0.1:8000/account/
+Content-Type: application/json
+
+{   "username": "david99",
+    "password": "123abc",
+    "is_admin": 1,
+    "available_money": 200
+                          }
+
+###
+
+GET http://127.0.0.1:8000/accounts/
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/account/david99
+Accept: application/json
+
+###
+
+POST http://127.0.0.1:8000/orders/adri99
+Content-Type: application/json
+
+{ "match_id": 2,
+  "tickets_bought": 3
+}
+
+###
+
+GET http://127.0.0.1:8000/orders/pau99
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/orders
+Accept: application/json
+
+###
+
