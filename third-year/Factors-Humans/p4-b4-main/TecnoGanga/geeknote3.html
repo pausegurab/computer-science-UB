@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <section id="app">
+        <div class="container-fluid">
+            <div class="row menu-nav">
+                <div class="col" @click="redireccionar('index.html')">
+                    <img src="./resource/logo.PNG" class="img" width="100" alt="Foto del logo">
+                </div>
+                <div class="col">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" aria-current="page"  href="index.html">Forum</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="geeknote_preview.html">GeekNotes</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Contacto</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+                </div>
+                <div class="col text-center " @click="redireccionar('user.html')">
+                    <img src="./resource/usario.png" class="img" width="50" alt="Foto del usuario">
+                    <h6> <a class="username" href="user.html">usuario123</a></h6>
+                </div>
+            </div>
+            <div class="row buscador">
+                <nav class="navbar navbar-light">
+                    <div class="container-fluid justify-content-center">
+                        <form class="d-flex cerca">
+                            <input class="form-control me-2" id="buscador" type="search" placeholder="Search"
+                                aria-label="Search" @input="buscar()">
+                            <button class="btn btn-outline-success" id="btn-buscar" type="button"
+                                @click.stop="buscar()">
+                                <span class="material-icons">search</span>
+                            </button>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+            <article class="container my-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="./resource/programming_geeknote.png" alt="Descripción de la imagen" class="img-fluid">
+                            </div>
+                            <div class="col-md-8">
+                                <h1>Se debería estudiar programación en las escuelas?</h1>
+                                <span style="margin-right: 10px; margin-left:10px;"><i class="material-icons"
+                                        style="color: gold;">star</i> 13</span>
+                                <span style="margin-left: 10px;"><i class="material-icons">forum</i> 2</span>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <div class="col-md-12">
+                                <p>"No esperamos que todos los niños que aprenden a escribir se conviertan en
+                                    novelistas, ni que todos los que estudian álgebra acaben siendo matemáticos; sin
+                                    embargo, ambas son consideradas como habilidades fundamentales que todos los niños
+                                    deben aprender. La programación informática también debería serlo", sentencia Hadi
+                                    Partovi, cofundador de Code.org, una organización sin ánimo de lucro que promueve la
+                                    enseñanza de código en las escuelas en EE UU.
+
+                                    Hay quien llega más lejos en sus opiniones. Es el caso de Dan Crow, director
+                                    tecnológico de la empresa Songkick y profesor de ciencias computacionales en la
+                                    Universidad de Leeds (Reino Unido). Crow asegura que "el software se está
+                                    convirtiendo en un elemento fundamental en nuestras vidas" y que en el futuro
+                                    "desconocer el lenguaje de los ordenadores será tan grave como lo es hoy no saber
+                                    las letras y los números".
+
+                                    Aunque esto "no quiere decir que todos futuros los puestos de trabajo vayan a
+                                    requerir conocimientos de programación", para el experto es fundamental que todos
+                                    los niños "aprendan código".
+                                    <br>
+                                <h2>Tendencia mundial.</h2>
+                                <br>
+                                Introducir la programación en educación primaria y secundaria es una tendencia mundial.
+                                La Administración de Obama, en colaboración con Google, ha puesto en marcha varias
+                                iniciativas para que los niños se manejen con el lenguaje informático, como el CS First.
+
+                                En Europa, el caso más mediático ha sido el de Reino Unido, donde este curso todos los
+                                alumnos desde los seis años tienen una asignatura de computación. Además, en ese país el
+                                año pasado se lanzó una iniciativa para animar a que educadores, padres y niños
+                                aprendieran código, denominada Year of Code, en la que participó como asesor Dan Crow.
+
+                                Las medidas británicas, con su maquinaria de relaciones públicas siempre a punto, son
+                                las más conocidas, pero tal y como indica a Sinc Gregorio Robles, director del grupo de
+                                investigación de desarrollo del pensamiento computacional de la Universidad Rey Juan
+                                Carlos (URJC), "otros países europeos como Estonia, Dinamarca e Irlanda han incluido ya
+                                la programación en las escuelas. Y Finlandia y Francia están en el proceso de hacerlo,
+                                según los datos de la propia Comisión Europea".
+
+                                Robles agrega que en España algunas Comunidades Autónomas han comenzado a dar algunos
+                                pasos en esa dirección. "Navarra ha sido la región pionera y ha incluido la programación
+                                en el área de matemáticas en cuarto y quinto de primaria, mientras que Madrid ha
+                                anunciado su introducción en la educación secundaria asociada a tecnología para el curso
+                                2015/16. Además, en esta Comunidad se ha comenzado a impartir la materia de forma
+                                experimental en un grupo de institutos este mismo curso".
+                                <br>
+                                <br>
+                                <h2>Mejora del rendimiento escolar.</h2>
+                                <br>
+                                Precisamente, el departamento que dirige este profesor en la URJC se centra en estudiar
+                                el desarrollo del pensamiento computacional desde edades tempranas. "Tratamos de
+                                comprobar las ventajas de este aprendizaje. Los resultados de nuestras investigaciones,
+                                realizadas con estudiantes de varios países y de distintas edades, indican que la
+                                enseñanza temprana de la programación mejora el rendimiento escolar en disciplinas tan
+                                distintas como las matemáticas o el inglés", dice el investigador.
+
+                                Según explica Robles, eso sucede básicamente porque en computación se combinan las
+                                matemáticas, la lógica y los algoritmos. "Al programar realizas tareas en las que
+                                intervienen la abstracción, el modelado, el razonamiento y la resolución de problemas".
+
+                                Respecto a los idiomas, agrega, "aunque esta relación aún está en fase de investigación,
+                                hemos notado dos ventajas en los alumnos que programan. Por un lado, entienden mejor la
+                                estructuración de la lengua con reglas lógicas. Y, por otra, al haber muchos materiales
+                                en inglés, experimentan de primera mano la importancia de aprenderlo".
+
+                                Su equipo de la URJC acaba participar en la IEEE Global Engineering Education Conference
+                                celebrada en Estonia, donde ha presentado un estudio llevado a cabo con estudiantes de
+                                cuarto y quinto de primaria del colegio San Diego y San Vicente de Madrid. Los
+                                resultados mostraron una mejora en el aprendizaje del inglés con las actividades de
+                                programación.
+
+                                En la inauguración de la conferencia, el presidente la República de Estonia, Toomas
+                                Hendrik Ilves, aseguró que "el secreto de que los estudiantes estonios hayan ascendido
+                                hasta las primeras posiciones en matemáticas y ciencias en las últimas pruebas PISA está
+                                en la introducción de la programación en la escuela".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"
+    ></script>
+</body>
+
+</html>

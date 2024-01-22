@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <section id="app">
+        <div class="container-fluid">
+            <div class="row menu-nav ">
+                <div class="col" @click="redireccionar('index.html')">
+                    <img src="./resource/logo.PNG" class="img" width="100" alt="Foto del logo">
+                </div>
+                <div class="col">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" aria-current="page"  href="index.html">Forum</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="geeknote_preview.html">GeekNotes</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Contacto</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+                </div>
+                <div class="col text-center " @click="redireccionar('user.html')">
+                    <img src="./resource/usario.png" class="img" width="50" alt="Foto del usuario">
+                    <h6> <a class="username" href="user.html">usuario123</a></h6>
+                </div>
+            </div>
+            <div class="row buscador">
+                <nav class="navbar navbar-light">
+                    <div class="container-fluid justify-content-center">
+                        <form class="d-flex cerca">
+                            <input class="form-control me-2" id="buscador" type="search" placeholder="Search"
+                                aria-label="Search" @input="buscar()">
+                            <button class="btn btn-outline-success" id="btn-buscar" type="button"
+                                @click.stop="buscar()">
+                                <span class="material-icons">search</span>
+                            </button>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+            <article class="container my-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="./resource/tsmc_logo.png" alt="Descripción de la imagen" class="img-fluid">
+                            </div>
+                            <div class="col-md-8">
+                                <h1>TSMC, el gigante de los microchips.</h1>
+                                <span style="margin-right: 10px; margin-left:10px;"><i class="material-icons"
+                                        style="color: gold;">star</i> 120</span>
+                                <span style="margin-left: 10px;"><i class="material-icons">forum</i> 46</span>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <div class="col-md-12">
+                                <p>Probablemente, el dispositivo en el que está leyendo esto tenga alguno de sus chips.
+
+                                    Se llama TSMC (siglas en inglés de la Compañía de Fabricación de Semiconductores de
+                                    Taiwán), y se ha convertido en la gran dominadora del negocio de la venta de
+                                    circuitos integrados, los conocidos como chips, a nivel mundial.
+
+                                    Junto con sus empresas subsidiarias, tiene más de 51.000 empleados y sus chips se
+                                    utilizan en informática, comunicaciones, automoción y un largo etcétera de ramas de
+                                    la industria.
+
+                                    Desde su sede en el Parque Científico de Hsinchu, en Taiwán, TSMC se ha convertido
+                                    en una de las compañías más valiosas e indispensables de un mundo que, más en la era
+                                    de la pandemia, depende de los diminutos artefactos que fabrica.
+
+                                    Y pese a que muchos en el mercado le auguraron dificultades por las disputas
+                                    comerciales entre Estados Unidos y China, y las ambiciones de China sobre Taiwán,
+                                    TSMC conserva una fortaleza por ahora inalcanzable para sus competidores.
+                                    <br>
+                                <h2>¿Cómo empezó todo?</h2>
+                                <br>
+                                Antes de ser un gran negocio, TSMC fue la idea de Morris Chang, un graduado en
+                                Ingeniería Mecánica del prestigioso Instituto de Tecnología de Massachusetts. (MIT, por
+                                sus siglas en inglés).
+
+                                Tras 25 años trabajando para Texas Instruments, una compañía, también dedicada a la
+                                microelectrónica, decidió crear su propia compañía en 1987.
+
+                                Chang apostó por la especialización y la apuesta dio resultado. Con apoyo del gobierno
+                                de Taiwán orientó su compañía hacia la producción de semiconductores en una época en la
+                                que todos los actores de la industria estaban más volcados en diseñarlos que en
+                                fabricarlos.
+
+                                Como explica Gun Woo, analista senior de gestión de capital de la consultora La
+                                Française, "compañías como Qualcomm, Apple o Nvidia solo diseñan circuitos integrados de
+                                semiconductores, pero normalmente no tienen los equipos ni las máquinas para hacerlos.
+                                TSMC sí los tiene. Hablamos de equipos muy caros y establecer una fábrica normalmente
+                                requiere una inversión de varios miles de millones de dólares, con el riesgo de que la
+                                tecnología quede rápidamente obsoleta".
+
+                                Esa es la razón de ser y del éxito de TSMC. Según Woo, "invierte en nombre de sus
+                                clientes y comparte con ellos su tecnología punta".
+                                <br>
+                                <br>
+                                <h2>Las claves del éxito.</h2>
+                                <br>
+                                No todos creyeron en este modelo de negocio al principio. En una de sus escasas
+                                apariciones públicas, Chang recordó el 21 de abril que, cuando hace 30 años acudió a la
+                                multinacional estadounidense Intel en busca de capital para hacer realidad su proyecto,
+                                lo rechazaron de plano.
+
+                                "Entonces Intel era el macho alfa que se burlaba de nosotros", dijo Chang, que añadió:
+                                "Nunca pensaron que el negocio de la fabricación externalizada sería tan importante como
+                                es hoy día".
+
+                                Ahora Intel busca como subirse al tren que perdió entonces. En una reciente entrevista
+                                con la BBC, el jefe ejecutivo de Intel, Pat Gelsinger, reconoció que la compañía había
+                                caído en un "bache" en los últimos años, pero anunció que intensificará sus esfuerzos
+                                por recuperar el liderazgo perdido en la fabricación de chips semiconductores.
+
+                                TSMC ha invertido en los últimos años grandes sumas en innovaciones como la tecnología
+                                del láser Extremo Ultra Violeta (EUV), que ha permitido producir semiconductores más
+                                sofisticados.
+
+                                Woo explica que "al principio las máquinas eran muy lentas y, por tanto, el margen de
+                                ganancia muy bajo, por lo que pocas compañías quisieron comprarlas e incorporarlas en su
+                                proceso de producción, mientras que TSMC invirtió muy proactivamente en esta nueva
+                                tecnología", lo que con el tiempo "ayudó a que sus clientes pudieran lanzar mejores
+                                productos".
+
+                                Un ejemplo es Apple, cuyos teléfonos comenzaron a utilizar el chip AP de TSMC y a
+                                disfrutar en consecuencia lo que Woo califica de "ventaja competitiva".
+
+                                Decisiones como estas llevaron a TSMC a la posición de liderazgo que hoy ostenta y que
+                                la pandemia de covid contribuyó a consolidar.
+                                <br>
+                                <br>
+                                <h2>El petróleo del presente.</h2>
+                                <br>
+                                Sin embargo, los analistas advierten algunos nubarrones derivados de la geopolítica que
+                                podrían enturbiar el futuro de TSMC.
+
+                                Según Rory Green, analista de TS Lombard, los semiconductores son hoy día "el nuevo
+                                petróleo", el producto por el que rivalizan las superpotencias y lubrica una economía y
+                                una sociedad cada vez más digitalizadas. Y como durante décadas sucedió con el petróleo,
+                                los chips se han convertido en un recurso clave en el que intereses nacionales a veces
+                                enfrentados pueden generar turbulencias.
+
+                                Ya cuando el gobierno de Donald Trump anunció sanciones contra Huawei el pasado agosto,
+                                se temió que TSMC se resentiría al no poder seguir vendiendo sus chips al gigante chino
+                                de las comunicaciones. Sin embargo, otros clientes como la también china Oppo llenaron
+                                la cartera de pedidos que dejó de consumir Huawei.
+
+                                Chad Bown sospecha que, en realidad, la "guerra comercial" entre Trump y Pekín terminó
+                                por favorecer a TSMC. "Mi impresión es que China temió que en algún momento podría
+                                interrumpirse el suministro y acapararon cuantos pudieron".
+
+                                Sea como sea, la reciente escasez de semiconductores ha llevado a muchos en Occidente a
+                                plantearse los peligros de un mundo en el que, según datos de la consultora Deloitte, un
+                                60% de los chips se fabrican en Asia, principalmente en Taiwán y Corea del Sur, la
+                                primera especialmente expuesta a la amenaza de una intervención militar china que Pekín
+                                nunca ha descartado.
+
+                                Quizá por eso el presidente estadounidense Joe Biden ha lanzado un plan para subsidiar
+                                el desarrollo de una industria local con hasta US$50.000 millones y reducir así la
+                                dependencia de los proveedores asiáticos. Pero, de nuevo, TSMC, ha sido unas
+                                beneficiadas y recibirá fondos federales para la apertura de una nueva planta que planea
+                                construir en Phoenix, Arizona.
+
+                                También dirigentes políticos de la Unión Europea han expresado su deseo de incrementar
+                                su producción y evitar que sus fabricantes de automóviles tengan que volver a parar sus
+                                cadenas de montaje por la falta de semiconductores.
+
+                                Rory Green cree que "el crecimiento económico y la importancia de la seguridad nacional,
+                                junto con la rivalidad de las superpotencias, causará probablemente una bifurcación en
+                                la cadena de suministro y dividirá la producción en un bloque chino y otro
+                                estadounidense".
+
+                                Intel es una de las compañías que quiere aprovecharse de la oportunidad del apoyo
+                                estatal para acercarse a TSMC. Lo dejó claro su presidente: "Tener el 80% del suministro
+                                en Asia, simplemente, no es una manera aceptable de ver esta tecnología crítica para el
+                                mundo".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"
+    ></script>
+</body>
+
+</html>
