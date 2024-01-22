@@ -1,0 +1,341 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+Base <|-- ListadoBasesActivity
+Base <|-- AdaptadorBase
+Base <|-- CreacioBasesActivity
+AdaptadorBase <|--* BaseViewHolder
+AdaptadorLetra <|--* LetraViewHolder
+Letra <|-- AdaptadorLetra
+Letra <|-- LyricsActivity
+LyricsActivity <|-- LyricsActivityViewModel
+AdaptadorLetra <|--* onClickRecycler
+InicioActivity <|-- AjustesActivity
+InicioActivity <|-- EstudioActivity
+InicioActivity <|-- CreacioBasesActivity
+InicioActivity <|-- ListadoBasesActivity
+InicioActivity <|-- LyricsActivity
+LyricsActivity <|-- DialogGuardarLyric
+EstudioActivity <|-- DialogElegirLyric
+LoginActivity <|-- RegistroActivity
+RegistroActivity <|-- Registro2Activity
+LoginActivity <|-- InicioActivity
+EstudioActivity <|-- Base
+EstudioActivity <|-- Letra
+DialogGuardarLyric <|--* DialogGuardarListener
+
+class LyricsActivityViewModel{
+    private final MutableLiveData<ArrayList<Letra>> lyrics;
+    public static final String TAG;
+    LyricsActivityViewModel(Application application);
+    LiveData<ArrayList<Letra>> getArrayLyrics();
+    Letra getLyric(int idx);
+    void saveDocument(String title, String text, String owner, boolean publico);
+    void setCollection(ArrayList<Letra> ac);
+}
+
+class AdaptadorBase {
+    MediaPlayer mediaPlayer;
+    Context context;
+    ArrayList<Base> arrayBases;
+    AdaptadorBase(Context context, ArrayList<Base> arrayBases);
+    AdaptadorBase.BaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType);
+    void onBindViewHolder(AdaptadorBase.BaseViewHolder holder, int i);
+    int getItemCount();
+}
+class BaseViewHolder{
+    TextView textViewNombreBase;
+    ImageButton botonPlayBase;
+    ImageButton botonPauseBase;
+    BaseViewHolder(View itemView)
+
+}
+
+
+
+class AdaptadorLetra {
+    Context context;
+    ArrayList<Letra> arrayLetras;
+    onClickRecycler xOnClickRecycler;
+    AdaptadorLetra(Context context, ArrayList<Letra> arrayLetras, onClickRecycler xOnClickRecycler);
+    AdaptadorLetra.LetraViewHolder onCreateViewHolder(ViewGroup parent, int viewType);
+    void onBindViewHolder(AdaptadorLetra.LetraViewHolder holder, int i);
+    int getItemCount();
+
+
+}
+
+class LetraViewHolder{
+    ImageButton iconLetra;
+    TextView textLetra;
+    onClickRecycler onClickRecycler;
+    LetraViewHolder(View itemView, onClickRecycler onClickRecycler);
+    void onClick(View view);
+}
+
+
+
+interface onClickRecycler{
+    onLyricClick(int i);
+}
+class Base {
+    String nombreBase;
+    String sonido;
+    String getNombreBase();
+    void setNombreBase(String nombreBase);
+    String getSonido();
+    void setSonido(String sonido);
+
+}
+
+
+class Letra {
+    private String title;
+    private String text;
+    private String owner;
+    private boolean publico;
+    Letra(String nombreLetra, String text_lyrics);
+    String getNombreLetra();
+    void setNombreBase(String nombreLetra);
+    String getText_lyrics();
+    void setText_lyrics(String text_lyrics);
+}
+
+
+class AjustesActivity {
+    Button guardar;
+    Button nuevaFotoPerfil;
+    Button cerrarSesion;
+    Button back;
+    ImageView imagenPerfil;
+    private FirebaseAuth mAuth;
+    private TextView email;
+    private EditText usuarioNombre;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    void onCreate(Bundle savedInstanceState);
+    void onClickBotonNuevaFotoPerfilSettings(View view);
+    void cargarImg();
+    void onActivityResult(int requestCode, int resultCode, Intent data);
+    void onStart();
+    void cerrarSesionMethod(View view);
+    void modificarNombreUsuarioSettings(View view);
+
+}
+
+class CreacioBasesActivity {
+    Button back;
+    MediaPlayer base1_110bpm;
+    MediaPlayer base2_110bpm;
+    MediaPlayer base3_110bpm;
+    MediaPlayer ritmo1_110bpm;
+    MediaPlayer ritmo2_110bpm;
+    MediaPlayer ritmo3_110bpm;
+    MediaPlayer ritmo4_110bpm;
+    MediaPlayer base1_120bpm;
+    MediaPlayer base2_120bpm;
+    MediaPlayer base3_120bpm;
+    MediaPlayer ritmo1_120bpm;
+    MediaPlayer ritmo2_120bpm;
+    MediaPlayer ritmo3_120bpm;
+    MediaPlayer ritmo4_120bpm;
+    MediaPlayer base1_130bpm;
+    MediaPlayer base2_130bpm;
+    MediaPlayer base3_130bpm;
+    MediaPlayer ritmo1_130bpm;
+    MediaPlayer ritmo2_130bpm;
+    MediaPlayer ritmo3_130bpm;
+    MediaPlayer ritmo4_130bpm;
+    MediaPlayer base1_140bpm;
+    MediaPlayer base2_140bpm;
+    MediaPlayer base3_140bpm;
+    MediaPlayer ritmo1_140bpm;
+    MediaPlayer ritmo2_140bpm;
+    MediaPlayer ritmo3_140bpm;
+    MediaPlayer ritmo4_140bpm;
+    Button button00;
+    Button button01;
+    Button button02;
+    Button button03;
+    Button button04;
+    Button button05;
+    Button button06;
+    Button button07;
+    Button button08;
+    Button button09;
+    Button button10;
+    Button button11;
+    Button button12;
+    Button button13;
+    Button button14;
+    Button button15;
+    Button button16;
+    Button button17;
+    Button button18;
+    Button button19;
+    Button button20;
+    Button button21;
+    Button button22;
+    Button button23;
+    Button button24;
+    Button button25;
+    Button button26;
+    Button button27;
+    Button button28;
+    Button button29;
+    Button button30;
+    Button button31;
+    Button button32;
+    Button button33;
+    Button button34;
+    Button button35;
+    Button button36;
+
+
+    void onCreate(Bundle savedInstanceState);
+    setOnTouchListener(new View.OnTouchListener());
+    boolean onTouch(View view, MotionEvent motionEvent);
+
+
+
+
+}
+
+class DialogElegirLyric {
+Dialog onCreateDialog(Bundle savedInstanceState);
+
+}
+
+class DialogGuardarLyric {
+    private EditText nombreCancion;
+    private DialogGuardarListener listener;
+    Dialog onCreateDialog(Bundle savedInstanceState);
+    void onAttach(Context context);
+}
+interface DialogGuardarListener{
+void guardarLyricRecycler(String nombreLetra);
+}
+
+class EstudioActivity {
+
+
+    private Button buttonStart;
+    private Button buttonStop;
+    private Button buttonStopPlayingRecording;
+    private String AudioSavePathInDevice = null;
+    private MediaRecorder mediaRecorder ;
+    private Random random ;
+    public static final int RequestPermissionCode = 1;
+    MediaPlayer mediaPlayer ;
+
+    void goToInicio(View view);
+    void onCreate(Bundle savedInstanceState);
+    void openDialog();
+    void MediaRecorderReady();
+    String CreateRandomAudioFileName(int string);
+    void requestPermission();
+    void onRequestPermissionsResult(int requestCode, String[] permissions, @NonNull int[] grantResults);
+    boolean checkPermission();
+
+}
+
+class InicioActivity {
+
+    Button estudio;
+    Button bases;
+    Button creacion;
+    Button letras;
+    Button ajustes;
+    TextView email, apodo;
+    ImageView perfil;
+    void onCreate(Bundle savedInstanceState);
+
+
+
+}
+
+class ListadoBasesActivity {
+    SearchView barraBusquedaBases;
+    RecyclerView listadoBases;
+    Button back_listado;
+    Button add_base;
+    MediaPlayer mediaPlayer;
+    ArrayList<Base> arrayBases;
+    void onCreate(Bundle savedInstanceState);
+    void agregarBaseDeDispositivo(View view);
+    void searchBasesPorNombre(View view);
+    boolean onQueryTextSubmit(String s);
+    boolean onQueryTextChange(String s);
+
+}
+
+class LoginActivity {
+    private Button registro;
+    private Button inicioSesion;
+    private EditText email;
+    private EditText contrasena;
+    private FirebaseAuth mAuth;
+    void onCreate(Bundle savedInstanceState);
+    void onStart();
+    void signInFirebase(View view);
+
+
+}
+
+class LyricsActivity {
+    Button back;
+    SearchView barraBusquedaLetras;
+    RecyclerView listadoLetras;
+    Button add_letras;
+    ArrayList<Letra> arrayLetras;
+    EditText editar_letra;
+    Button nuevaLetra;
+    TextView nameLetra;
+    int indexCurrentLetra;
+    AdaptadorLetra adapter;
+    void onCreate(Bundle savedInstanceState);
+    void onLyricClick(int i);
+    void openDialog();
+    void guardarLyricRecycler(String nombreLetra);
+    boolean onQueryTextSubmit(String s);
+    boolean onQueryTextChange(String s);
+
+
+
+}
+
+
+
+class Registro2Activity {
+    Button registrarse;
+    Button nuevaFotoPerfil;
+    ImageView imagenPerfil;
+    private FirebaseAuth mAuth;
+    private TextView email;
+    private EditText usuarioNombre;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    void onCreate(Bundle savedInstanceState);
+    void onClickBotonNuevaFotoPerfil(View view);
+    void cargarImg();
+    void onActivityResult(int requestCode, int resultCode, @Nullable Intent data);
+    void onStart();
+    void modificarUsuario(View view);
+
+
+}
+
+class RegistroActivity {
+    Button inicioSesion;
+    Button siguiente;
+    private FirebaseAuth mAuth;
+    private EditText email;
+    private EditText contrasena;
+    private EditText repetirContrasena;
+    void onCreate(Bundle savedInstanceState);
+    void onStart();
+    void registrarUsuario(View view);
+
+}
+
+
+@enduml
